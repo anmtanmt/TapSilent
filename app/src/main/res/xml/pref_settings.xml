@@ -1,0 +1,38 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="category_settings"
+        android:title="@string/pref_category_title_settings">
+
+        <CheckBoxPreference
+            android:key="key_no_alarm"
+            android:title="@string/pref_item_no_alarm"
+            android:summary="@string/pref_item_summary_no_alarm"
+            />
+
+        <CheckBoxPreference
+            android:key="key_no_music"
+            android:title="@string/pref_item_no_music"
+            android:summary="@string/pref_item_summary_no_music"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_other"
+        android:title="@string/pref_category_title_other">
+
+        <PreferenceScreen
+            android:key="key_version"
+            android:title="@string/pref_item_version"
+            android:summary="@string/pref_version"
+            />
+
+        <PreferenceScreen
+            android:key="key_license"
+            android:title="@string/pref_item_license"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

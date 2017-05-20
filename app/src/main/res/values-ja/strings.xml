@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ワンタップ消音</string>
+
+    <!-- 音量変更完了後トースト -->
+    <string name="toast_volume_zero">音量を０にしました</string>
+    <string name="toast_volume_restored">音量を元に戻しました</string>
+
+    <!-- 設定画面 -->
+    <string name="pref_title_top">設定</string>
+    <string name="pref_category_title_settings">設定</string>
+    <string name="pref_item_no_alarm">アラーム音量を除外</string>
+    <string name="pref_item_summary_no_alarm">アラーム音量を消音切り替えの対象から除外する</string>
+    <string name="pref_item_no_music">音楽再生音量を除外</string>
+    <string name="pref_item_summary_no_music">音楽再生音量を消音切り替えの対象から除外する</string>
+
+    <string name="pref_category_title_other">その他</string>
+    <string name="pref_item_version">バージョン</string>
+    <string name="pref_version">1.0.0</string>
+    <string name="pref_item_license">ライセンス表示</string>
+
+    <string name="pref_title_license">ライセンス表示</string>
+
+</resources>

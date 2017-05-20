@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Tap Silent Volume</string>
+
+    <!-- 音量変更完了後トースト -->
+    <string name="toast_volume_zero">Volume was set to 0</string>
+    <string name="toast_volume_restored">Volume was restored</string>
+
+    <!-- 設定画面 -->
+    <string name="pref_title_top">Settings</string>
+    <string name="pref_category_title_settings">Settings</string>
+    <string name="pref_item_no_alarm">Exclude alarm volume</string>
+    <string name="pref_item_summary_no_alarm">Exclude alarm volume from silent switching</string>
+    <string name="pref_item_no_music">Exclude music volume</string>
+    <string name="pref_item_summary_no_music">Exclude music volume from silent switching</string>
+
+    <string name="pref_category_title_other">Other</string>
+    <string name="pref_item_version">Version</string>
+    <string name="pref_version">1.0.0</string>
+    <string name="pref_item_license">Lisence</string>
+
+    <string name="pref_title_license">Lisence</string>
+
+</resources>
