@@ -27,8 +27,6 @@ public class SilentWidget extends AppWidgetProvider {
         PendingIntent pendingIntent = null;
 
         // 音量変更実行
-//        intent = new Intent(context, ExeService.class);
-//        pendingIntent = PendingIntent.getService(context, 0, intent, 0);
         intent = new Intent(context, ExeActivity.class);
         pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         views.setOnClickPendingIntent(R.id.widget_image_main, pendingIntent);
