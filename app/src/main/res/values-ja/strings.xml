@@ -21,4 +21,9 @@
 
     <string name="pref_title_license">ライセンス表示</string>
 
+    <!-- フォアグラウンドサービスのNotification -->
+    <string name="notify_title_service">音量変更</string>
+    <string name="notify_text_service">音量を変更しています</string>
+
+
 </resources>

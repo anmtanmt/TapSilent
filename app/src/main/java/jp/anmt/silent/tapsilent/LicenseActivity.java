@@ -1,10 +1,8 @@
 package jp.anmt.silent.tapsilent;
 
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Window;
 import android.webkit.WebView;
 
 public class LicenseActivity extends AppCompatActivity {

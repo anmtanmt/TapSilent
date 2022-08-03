@@ -20,4 +20,9 @@
 
     <string name="pref_title_license">Lisence</string>
 
+    <!-- フォアグラウンドサービスのNotification -->
+    <string name="notify_title_service">change sound volume</string>
+    <string name="notify_text_service">change sound volume</string>
+
+
 </resources>

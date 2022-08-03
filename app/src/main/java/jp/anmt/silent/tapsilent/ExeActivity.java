@@ -1,80 +1,33 @@
 package jp.anmt.silent.tapsilent;
 
-import android.app.NotificationChannel;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.NotificationManager;
-import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Build;
-import android.os.IBinder;
+import android.os.Bundle;
 import android.provider.Settings;
-import androidx.core.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-public class ExeService extends Service {
-    private static final String TAG = "ExeService";
-    private static final String CHANNEL_ID = "ExeService";
-    private static final int ONGOING_NOTIFICATION_ID = 1; //0以外
-
-    public ExeService() {
-    }
+public class ExeActivity extends AppCompatActivity {
+    private static final String TAG = "ExeActivity";
 
     @Override
-    public IBinder onBind(Intent intent) {
-//        // TODO: Return the communication channel to the service.
-//        throw new UnsupportedOperationException("Not yet implemented");
-        return null;
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_exe);
 
-    // 開始時にコール
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        if (Param.D) Log.d(TAG, "onStartCommand()");
-
-        createNotificationChannel();
-        // 通知の準備
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle(getString(R.string.notify_title_service))
-                .setContentText(getString(R.string.notify_text_service))
-                .setSmallIcon(R.drawable.widget_vol_on)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-        startForeground(ONGOING_NOTIFICATION_ID, builder.build());
+        if (Param.D) Log.d(TAG, "ExeActivity()");
 
         executeChangeVolume();
 
-        // 自ら停止
-        stopSelf();
-
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    // 終了時にコール
-    @Override
-    public void onDestroy() {
-        if (Param.D) Log.d(TAG, "onDestroy()");
-
-        super.onDestroy();
-    }
-
-    // 通知のチャンネルを作成する
-    private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-            // 通知のレベルとか名称とか設定
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, getString(R.string.notify_title_service), importance);
-            channel.setDescription(getString(R.string.notify_text_service));
-
-            // 通知の登録
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
+        finish();
     }
 
     private boolean executeChangeVolume() {
@@ -98,17 +51,6 @@ public class ExeService extends Service {
 
         if (Param.D) Log.d(TAG, "executeChangeVolume()" + " silent:" + isSilent + " noAlarm:" + noAlarm + " noMusic:" + noMusic);
 
-        //isNotificationPolicyAccessGrantedを確認★
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (Param.D) Log.d(TAG, "executeChangeVolume() isNotificationPolicyAccessGranted:" + nm.isNotificationPolicyAccessGranted());
-            if (!nm.isNotificationPolicyAccessGranted()) {
-                Intent setupIntent = new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-                setupIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(setupIntent);
-                return false;
-            }
-        }
-
         if (!isSilent) {
             // 消音にする
 
@@ -123,17 +65,6 @@ public class ExeService extends Service {
                     case Param.STREAM_TYPE_MUSIC:
                         if (noMusic) continue;
                         break;
-//                        // 不要な対象をスキップ
-//                    case Param.STREAM_TYPE_DTFM:
-//                    case Param.STREAM_TYPE_SYSTEM:
-//                    case Param.STREAM_TYPE_ACCESSIBILITY:
-//                        continue;
-                    //  テスト　Ringをスキップ
-                    case Param.STREAM_TYPE_RING:
-                    case Param.STREAM_TYPE_DTFM:
-                    case Param.STREAM_TYPE_SYSTEM:
-                    case Param.STREAM_TYPE_ACCESSIBILITY:
-                        continue;
                     default:
                         break;
                 }
@@ -155,11 +86,6 @@ public class ExeService extends Service {
                     case Param.STREAM_TYPE_MUSIC:
                         if (noMusic) continue;
                         break;
-//                    // 不要な対象をスキップ
-//                    case Param.STREAM_TYPE_DTFM:
-//                    case Param.STREAM_TYPE_SYSTEM:
-//                    case Param.STREAM_TYPE_ACCESSIBILITY:
-//                        continue;
                     default:
                         break;
                 }
@@ -190,11 +116,6 @@ public class ExeService extends Service {
                     case Param.STREAM_TYPE_MUSIC:
                         if (noMusic) continue;
                         break;
-//                    // 不要な対象をスキップ
-//                    case Param.STREAM_TYPE_DTFM:
-//                    case Param.STREAM_TYPE_SYSTEM:
-//                    case Param.STREAM_TYPE_ACCESSIBILITY:
-//                        continue;
                     default:
                         break;
                 }

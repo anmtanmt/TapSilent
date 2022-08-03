@@ -16,14 +16,23 @@ public class PrefUtils {
     public static final String KEY_SETTING_NO_MUSIC = "key_no_music"; //音楽再生音量も含めるか否か
 
     // 音量
-    public static final String KEY_VOL_ALARM = "key_volume_alarm"; //アラーム音量
-    public static final String KEY_VOL_DTMF = "key_volume_dtmf"; //DTMF音量
+    public static final String KEY_VOL_RING = "key_volume_ring"; //着信音量
     public static final String KEY_VOL_MUSIC = "key_volume_music"; //音楽再生音量
     public static final String KEY_VOL_NOTIFY = "key_volume_notify"; //通知音量
-    public static final String KEY_VOL_RING = "key_volume_ring"; //着信音量
+    public static final String KEY_VOL_ALARM = "key_volume_alarm"; //アラーム音量
+    public static final String KEY_VOL_DTMF = "key_volume_dtmf"; //DTMF音量
     public static final String KEY_VOL_SYSTEM = "key_volume_system"; //システム音量
+    public static final String KEY_VOL_ACCESSIBILITY = "key_volume_accessibility"; //システム音量
 
-    public static final String[] PREFS_KEY_VOL = {KEY_VOL_ALARM, KEY_VOL_DTMF, KEY_VOL_MUSIC, KEY_VOL_NOTIFY, KEY_VOL_RING, KEY_VOL_SYSTEM};
+    public static final String[] PREFS_KEY_VOL = {
+            KEY_VOL_RING,
+            KEY_VOL_MUSIC,
+            KEY_VOL_NOTIFY,
+            KEY_VOL_ALARM,
+            KEY_VOL_DTMF,
+            KEY_VOL_SYSTEM,
+            KEY_VOL_ACCESSIBILITY
+    };
 
     // int型の値の書き込み
     public static void writePrefInt(Context ctx, String key, int param) {
