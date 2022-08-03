@@ -16,14 +16,9 @@
 
     <string name="pref_category_title_other">その他</string>
     <string name="pref_item_version">バージョン</string>
-    <string name="pref_version">1.0.0</string>
+    <string name="pref_version">2.0.0</string>
     <string name="pref_item_license">ライセンス表示</string>
 
     <string name="pref_title_license">ライセンス表示</string>
-
-    <!-- フォアグラウンドサービスのNotification -->
-    <string name="notify_title_service">音量変更</string>
-    <string name="notify_text_service">音量を変更しています</string>
-
 
 </resources>
