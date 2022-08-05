@@ -8,7 +8,7 @@ import android.media.AudioManager;
 
 public class Param {
     // デバッグモード有効
-    public static final boolean D = true;
+    public static final boolean D = false;
 
     public static final int STREAM_TYPE_MAX = 7;
 
