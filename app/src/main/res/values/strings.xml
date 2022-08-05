@@ -15,7 +15,7 @@
 
     <string name="pref_category_title_other">Other</string>
     <string name="pref_item_version">Version</string>
-    <string name="pref_version">1.0.0</string>
+    <string name="pref_version">2.0.0</string>
     <string name="pref_item_license">Lisence</string>
 
     <string name="pref_title_license">Lisence</string>

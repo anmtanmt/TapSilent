@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TapSilent.iml" filepath="$PROJECT_DIR$/TapSilent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TapSilent.iml" filepath="$PROJECT_DIR$/.idea/modules/TapSilent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TapSilent.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TapSilent.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TapSilent.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TapSilent.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TapSilent.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TapSilent.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TapSilent.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TapSilent.app.unitTest.iml" />
     </modules>
   </component>
 </project>

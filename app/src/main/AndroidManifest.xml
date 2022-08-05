@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.anmt.silent.tapsilent">
 
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".SilentWidget">
+
+        <receiver
+            android:name=".SilentWidget"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -19,15 +24,15 @@
                 android:resource="@xml/silent_widget_info" />
         </receiver>
 
-        <activity android:name=".SetActivity"></activity>
+        <activity
+            android:name=".ExeActivity"
+            android:theme="@style/Theme.NoActionBar.FullScreen.Transparent" />
+        <activity
+            android:name=".SetActivity" />
         <activity
             android:name=".LicenseActivity"
-            android:label="@string/pref_title_license"></activity>
+            android:label="@string/pref_title_license" />
 
-        <service
-            android:name=".ExeService"
-            android:enabled="true"
-            android:exported="true"></service>
     </application>
 
 </manifest>

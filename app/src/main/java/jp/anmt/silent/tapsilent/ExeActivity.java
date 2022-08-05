@@ -1,49 +1,33 @@
 package jp.anmt.silent.tapsilent;
 
-import android.app.Service;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.NotificationManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
-import android.os.IBinder;
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-public class ExeService extends Service {
-    private static final String TAG = "ExeService";
-
-    public ExeService() {
-    }
+public class ExeActivity extends AppCompatActivity {
+    private static final String TAG = "ExeActivity";
 
     @Override
-    public IBinder onBind(Intent intent) {
-//        // TODO: Return the communication channel to the service.
-//        throw new UnsupportedOperationException("Not yet implemented");
-        return null;
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_exe);
 
-    // 開始時にコール
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        if (Param.D) Log.d(TAG, "onStartCommand()");
+        if (Param.D) Log.d(TAG, "ExeActivity()");
 
-        boolean exeRet = false;
-        exeRet = executeChangeVolume();
+        executeChangeVolume();
 
-        // 自ら停止
-        stopSelf();
-
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    // 終了時にコール
-    @Override
-    public void onDestroy() {
-        if (Param.D) Log.d(TAG, "onDestroy()");
-
-        super.onDestroy();
+        finish();
     }
 
     private boolean executeChangeVolume() {
@@ -52,15 +36,20 @@ public class ExeService extends Service {
         boolean noAlarm = PrefUtils.readPrefBool(this, PrefUtils.KEY_SETTING_NO_ALARM);
         boolean noMusic = PrefUtils.readPrefBool(this, PrefUtils.KEY_SETTING_NO_MUSIC);
 
-        if (Param.D) Log.d(TAG, "executeChangeVolume()" + " silent:" + isSilent + " noAlarm:" + noAlarm + " noMusic:" + noMusic);
-
         // AudioManagerを取得する
         AudioManager am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (am == null) {
             if (Param.D) Log.d(TAG, "executeChangeVolume() AudioManager is null!");
             return false;
         }
+        if (nm == null) {
+            if (Param.D) Log.d(TAG, "executeChangeVolume() NotificationManager is null!");
+            return false;
+        }
+
+        if (Param.D) Log.d(TAG, "executeChangeVolume()" + " silent:" + isSilent + " noAlarm:" + noAlarm + " noMusic:" + noMusic);
 
         if (!isSilent) {
             // 消音にする
@@ -102,7 +91,10 @@ public class ExeService extends Service {
                 }
 
                 // 対象ストリームの音量をゼロに変更
-                am.setStreamVolume(Param.AM_STREAM_TYPE[i], 0, 0);
+                // 0以下はスキップ
+                if (volArray[i] > 0) {
+                    am.setStreamVolume(Param.AM_STREAM_TYPE[i], 0, 0);
+                }
             }
 
             // もともとの設定値を記憶
@@ -129,8 +121,8 @@ public class ExeService extends Service {
                 }
 
                 // 対象ストリームにもとの音量を設定
-                // 負の値が入っていたらスキップ
-                if (volArray[i] >= 0) {
+                // 0以下はスキップ
+                if (volArray[i] > 0) {
                     am.setStreamVolume(Param.AM_STREAM_TYPE[i], volArray[i], 0);
                 }
 
