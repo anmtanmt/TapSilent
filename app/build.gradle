@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 33
     defaultConfig {
-        applicationId "jp.anmt.silent.tapsilent"
+        applicationId "jp.anmt.silent.tapsilent2"
         minSdkVersion 23
         targetSdkVersion 33
         versionCode 2

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.anmt.silent.tapsilent">
+    package="jp.anmt.silent.tapsilent2">
 
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <receiver
-            android:name=".SilentWidget"
+            android:name="jp.anmt.silent.tapsilent2.SilentWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -25,12 +25,12 @@
         </receiver>
 
         <activity
-            android:name=".ExeActivity"
+            android:name="jp.anmt.silent.tapsilent2.ExeActivity"
             android:theme="@style/Theme.NoActionBar.FullScreen.Transparent" />
         <activity
-            android:name=".SetActivity" />
+            android:name="jp.anmt.silent.tapsilent2.SetActivity" />
         <activity
-            android:name=".LicenseActivity"
+            android:name="jp.anmt.silent.tapsilent2.LicenseActivity"
             android:label="@string/pref_title_license" />
 
     </application>

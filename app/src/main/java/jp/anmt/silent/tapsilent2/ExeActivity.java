@@ -1,4 +1,4 @@
-package jp.anmt.silent.tapsilent;
+package jp.anmt.silent.tapsilent2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,8 @@ import android.app.NotificationManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.media.AudioManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
