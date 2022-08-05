@@ -1,4 +1,4 @@
-package jp.anmt.silent.tapsilent;
+package jp.anmt.silent.tapsilent2;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package jp.anmt.silent.tapsilent;
+package jp.anmt.silent.tapsilent2;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
